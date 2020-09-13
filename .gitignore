@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+house-monitor-pi-firebase-adminsdk-ev938-686a034608.json
+firebase_config_json_token.json
+*.json
 # C extensions
 *.so
 
