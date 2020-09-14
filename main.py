@@ -3,7 +3,8 @@ from sensors.Camera import Camera
 from models.Config import Config
 from apscheduler.schedulers.background import BackgroundScheduler
 import time
-import os
+from dotenv import load_dotenv
+load_dotenv()
 
 def run_sensors():
     print("running sensors")
