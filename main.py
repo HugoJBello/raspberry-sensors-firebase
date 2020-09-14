@@ -13,6 +13,7 @@ def run_sensors():
 def main():
 
     sched = BackgroundScheduler()
+    sched.daemonic = False
     sched.add_job(run_sensors, 'interval', seconds=10)
     sched.start()
 
