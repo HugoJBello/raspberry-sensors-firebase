@@ -6,9 +6,11 @@ import time
 from dotenv import load_dotenv
 load_dotenv()
 
+config = Config()
+
+
 def run_sensors():
     print("running sensors")
-    config = Config()
     camera = Camera(config)
     camera.shot()
 
