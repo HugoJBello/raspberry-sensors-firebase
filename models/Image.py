@@ -1,6 +1,7 @@
 from models.Config import Config
 import datetime
 import os
+from uuid import uuid4
 
 
 class Image:
@@ -17,7 +18,12 @@ class Image:
         self.filename = "image_" + self.device_id + "_" + self.sensor_id + "_" + str(self.date) + self.extension
 
     def upload_image(self):
+
+        new_token = uuid4()
+        metadata = {"firebaseStorageDownloadTokens": new_token}
         image_blob = self.config.bucket.blob(self.filename)
+        image_blob.metadata = metadata
+
         image_blob.upload_from_filename(self.path)
         data = {
             "device_id": self.device_id,
