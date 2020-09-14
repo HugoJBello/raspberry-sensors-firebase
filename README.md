@@ -19,3 +19,9 @@
     curl -sSL https://get.docker.com | sh
     sudo usermod -aG docker pi 
     sudo apt-get install docker-compose
+
+# on startup
+    sudo nano /home/pi/.bashrc
+add the line    
+    
+    cd ~/Documents/raspberry-sensors-firebase; bash start.sh
