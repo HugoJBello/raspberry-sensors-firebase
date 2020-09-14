@@ -9,6 +9,8 @@ verify_ssl = true
 firebase-admin = "*"
 python-dotenv = "*"
 google-cloud-storage = "*"
+picamera = "*"
+apscheduler = "*"
 
 [requires]
 python_version = "3.8"
