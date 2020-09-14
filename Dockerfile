@@ -2,7 +2,8 @@
 #FROM python:3.7-alpine
 
 #FROM python:3.7
-FROM balenalib/raspberry-pi-debian-python:latest
+#FROM balenalib/raspberry-pi-debian-python:latest
+FROM frankwolf/rpi-python3
 
 COPY . .
 
