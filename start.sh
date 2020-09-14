@@ -1,2 +1,1 @@
-pipenv shell
-pm2 start main.py --name main_job --interpreter python3
+pm2 start "pipenv run python3 main.py"
