@@ -6,20 +6,23 @@ import time
 from dotenv import load_dotenv
 load_dotenv()
 
-config = Config()
 
 
 def run_sensors():
+    config = Config()
+
     print("running sensors")
     camera = Camera(config)
-    camera.shot()
+    sched = BackgroundScheduler()
+    sched.add_job(camera.shot, 'interval', seconds=10)
+    sched.start()
+    return sched
 
 def main():
 
     print("starting process")
-    sched = BackgroundScheduler()
-    sched.add_job(run_sensors, 'interval', seconds=10)
-    sched.start()
+    sched = run_sensors()
+
     try:
         # This is here to simulate application activity (which keeps the main thread alive).
         while True:
