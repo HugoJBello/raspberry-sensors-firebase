@@ -1,0 +1,12 @@
+version: '2.1'
+
+volumes:
+    raspberry-sensors-firebase:
+
+services:
+    raspberry-sensors-firebase:
+        build: .
+        restart: always
+        network_mode: "host"
+        env_file:
+        - .env
