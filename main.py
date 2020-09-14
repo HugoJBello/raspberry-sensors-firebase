@@ -6,6 +6,7 @@ import time
 import os
 
 def run_sensors():
+    print("running sensors")
     config = Config()
     camera = Camera(config)
     camera.shot()
@@ -14,10 +15,8 @@ def main():
 
     print("starting process")
     sched = BackgroundScheduler()
-    sched.start()
     sched.add_job(run_sensors, 'interval', seconds=10)
-    print("eding process")
-
+    sched.start()
     try:
         # This is here to simulate application activity (which keeps the main thread alive).
         while True:
@@ -25,6 +24,8 @@ def main():
     except (KeyboardInterrupt, SystemExit):
         # Not strictly necessary if daemonic mode is enabled but should be done if possible
         sched.shutdown()
+        print("eding process")
+
 
 if __name__ == '__main__':
 	main()
