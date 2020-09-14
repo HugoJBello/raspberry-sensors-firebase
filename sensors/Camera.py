@@ -16,7 +16,6 @@ class Camera:
 
         image = Image(config=self.config, path=path)
         image.upload_image()
-        sleep(5)
 
 
     def shot_periodically(self):
@@ -24,7 +23,7 @@ class Camera:
         camera = PiCamera()
         sched = BackgroundScheduler()
 
-        sched.add_job(lambda: self.shot(camera), 'interval', seconds=5)
+        sched.add_job(lambda: self.shot(camera), 'interval', seconds=10)
         sched.start()
 
         try:
