@@ -9,7 +9,7 @@ class Camera:
         self.config = config
 
     def shot(self):
-
+        print("taking camera shot")
         camera = PiCamera()
         camera.start_preview()
         sleep(5)

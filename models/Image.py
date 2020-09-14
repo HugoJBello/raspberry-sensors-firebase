@@ -27,6 +27,6 @@ class Image:
             "filename": self.filename,
             "extension": self.extension
         }
-
+        print("uploading image: " + self.filename)
         # Add a new doc in collection 'cities' with ID 'LA'
         self.config.db.collection(u'images').document(self.filename).set(data)

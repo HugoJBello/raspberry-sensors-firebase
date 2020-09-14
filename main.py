@@ -12,10 +12,12 @@ def run_sensors():
 
 def main():
 
+    print("starting process")
     sched = BackgroundScheduler()
     sched.daemonic = False
-    sched.add_job(run_sensors, 'interval', seconds=10)
     sched.start()
+    sched.add_job(run_sensors, 'interval', seconds=10)
+    print("eding process")
 
 if __name__ == '__main__':
 	main()
