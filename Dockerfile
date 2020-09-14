@@ -1,11 +1,25 @@
 
-FROM kennethreitz/pipenv
+FROM maidbot/resin-raspberrypi3-qemu
 
-COPY . .
+RUN [ "cross-build-start" ]
 
-ENV PATH="$PATH:/opt/vc/bin"
-RUN echo "/opt/vc/lib" > /etc/ld.so.conf.d/00-vcms.conf
-RUN sudo apt-get install libffi6 libffi-dev
+#switch on systemd init system in container
+ENV INITSYSTEM off
 
-CMD pipenv install picamera
+RUN apt-get update && apt-get install -y \
+        python-pip \
+	&& rm -rf /var/lib/apt/lists/*
+
+# pip install python deps from requirements.txt
+# For caching until requirements.txt changes
+ENV READTHEDOCS True
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+
+RUN [ "cross-build-end" ]
+
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+VOLUME ["/data"]
 CMD python3 main.py
