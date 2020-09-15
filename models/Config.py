@@ -4,6 +4,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 from firebase_admin import storage
+import datetime
 
 class Config:
     def __init__(self):
@@ -13,6 +14,7 @@ class Config:
 
         self.initialize_firebase()
         self.load_from_env()
+        self.update_config()
 
 
     def initialize_firebase(self):
@@ -25,11 +27,18 @@ class Config:
 
         self.bucket = storage.bucket("house-monitor-pi.appspot.com")
 
-        #imagePath = "Config.py"
-        #imageBlob = self.bucket.blob(imagePath)
-        #imageBlob.upload_from_filename(imagePath)
 
     def load_from_env(self):
         self.sensor_id = os.getenv("sensor_id")
         self.device_id = os.getenv("device_id")
+
+    def update_config(self):
+        data = {
+            "device_id": self.device_id,
+            "sensor_id": self.sensor_id,
+            "date": datetime.datetime.now()
+        }
+        print("updating config: " + self.device_id)
+        # Add a new doc in collection 'cities' with ID 'LA'
+        self.db.collection(u'devices').document(self.device_id).set(data)
 
