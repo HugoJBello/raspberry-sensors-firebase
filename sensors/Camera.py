@@ -8,6 +8,7 @@ import time
 class Camera:
     def __init__(self, config: Config):
         self.config = config
+        self.interval = 60*2
 
     def shot(self, camera):
         path = '../image.jpg'
@@ -23,7 +24,7 @@ class Camera:
         camera = PiCamera()
         sched = BackgroundScheduler()
 
-        sched.add_job(lambda: self.shot(camera), 'interval', seconds=10)
+        sched.add_job(lambda: self.shot(camera), 'interval', seconds=self.interval)
         sched.start()
 
         try:

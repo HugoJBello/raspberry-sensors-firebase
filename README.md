@@ -15,13 +15,15 @@
     
     pipenv run pip freeze > requirements.txt
 
-# optional
-    curl -sSL https://get.docker.com | sh
-    sudo usermod -aG docker pi 
-    sudo apt-get install docker-compose
 
-# on startup
+# add script on startup
     sudo nano /home/pi/.bashrc
 add the line    
     
     cd ~/Documents/raspberry-sensors-firebase; bash start.sh
+
+
+# optional docker
+    curl -sSL https://get.docker.com | sh
+    sudo usermod -aG docker pi 
+    sudo apt-get install docker-compose
