@@ -1,7 +1,7 @@
 # raspberry-sensors-firebase
 
 # clone repo and install dependencies
-    cd home/pi/Documents/
+    cd /home/pi/Documents/
     git clone https://github.com/HugoJBello/raspberry-sensors-firebase.git
 
 # prerequisites install libraries nvm y pipenv
@@ -13,7 +13,7 @@
     sudo apt-get install libffi6 libffi-dev
     sudo apt-get install pipenv
     
-    cd home/pi/Documents/raspberry-sensors-firebase
+    cd /home/pi/Documents/raspberry-sensors-firebase
     pipenv install
     
   
