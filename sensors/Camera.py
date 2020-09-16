@@ -8,12 +8,11 @@ import time
 class Camera:
     def __init__(self, config: Config):
         self.config = config
-        self.interval = 60*2
+        self.interval = self.config.interval_for_images
 
     def shot(self, camera):
         path = '../image.jpg'
         camera.capture(path)
-        #camera.stop_preview()
 
         image = Image(config=self.config, path=path)
         image.upload_image()
