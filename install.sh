@@ -4,3 +4,6 @@ sudo npm install pm2@latest -g
 
 sudo apt-get install libffi6 libffi-dev
 sudo apt-get install pipenv
+
+cd home/pi/Documents/raspberry-sensors-firebase
+pipenv install
