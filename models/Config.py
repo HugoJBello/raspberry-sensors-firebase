@@ -32,7 +32,7 @@ class Config:
     def load_from_env(self):
         self.sensor_id = os.getenv("sensor_id")
         self.device_id = os.getenv("device_id")
-        self.interval_for_images = os.getenv("interval_for_images")
+        self.interval_for_images = int(os.getenv("interval_for_images"))
         if  (self.interval_for_images == None or self.interval_for_images == ""):
             self.interval_for_images = 60*5
 
