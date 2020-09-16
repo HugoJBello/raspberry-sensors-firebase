@@ -18,6 +18,7 @@ class Image:
         self.filename = "image_" + self.device_id + "_" + self.sensor_id + "_" + str(self.date) + self.extension
 
     def upload_image(self):
+        print("uploading image")
 
         new_token = uuid4()
         metadata = {"firebaseStorageDownloadTokens": new_token}

@@ -11,6 +11,7 @@ class Camera:
         self.interval = self.config.interval_for_images
 
     def shot(self, camera):
+        print("taking shot")
         path = '../image.jpg'
         camera.capture(path)
 
@@ -19,7 +20,7 @@ class Camera:
 
 
     def shot_periodically(self):
-        print("taking camera shot")
+        print("running job camera shot")
         camera = PiCamera()
         sched = BackgroundScheduler()
 
