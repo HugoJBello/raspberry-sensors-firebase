@@ -25,7 +25,7 @@ class Camera:
         sched = BackgroundScheduler()
 
         print("adding job")
-        sched.add_job(lambda: self.shot(camera), 'interval', seconds=self.interval)
+        sched.add_job(lambda: self.shot(camera), 'interval', seconds=1)
         sched.start()
 
         try:
