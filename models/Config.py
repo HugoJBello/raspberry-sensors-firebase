@@ -41,6 +41,7 @@ class Config:
         data = {
             "device_id": self.device_id,
             "sensor_id": self.sensor_id,
+            "interval_for_images": self.interval_for_images,
             "date": datetime.datetime.now()
         }
         print("updating config: " + self.device_id)
