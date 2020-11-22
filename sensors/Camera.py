@@ -24,6 +24,7 @@ class Camera:
         camera = PiCamera()
         sched = BackgroundScheduler()
 
+        print("adding job")
         sched.add_job(lambda: self.shot(camera), 'interval', seconds=self.interval)
         sched.start()
 
