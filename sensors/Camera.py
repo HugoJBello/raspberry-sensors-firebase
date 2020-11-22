@@ -13,7 +13,7 @@ class Camera:
     def shot(self, camera):
         print("taking shot")
         path = '../image.jpg'
-        camera.capture(path)
+        camera.capture(path, use_video_port=True)
 
         image = Image(config=self.config, path=path)
         image.upload_image()
