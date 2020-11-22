@@ -8,7 +8,7 @@ import time
 class Camera:
     def __init__(self, config: Config):
         self.config = config
-        self.interval = self.config.interval_for_images
+        self.interval = int(self.config.interval_for_images)
 
     def shot(self, camera):
         print("taking shot")
